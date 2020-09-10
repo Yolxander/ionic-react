@@ -16,26 +16,37 @@ import BiorhythmCard from './components/BiorhythmCard';
 
 function App() {
   const [birthDate, setBirthDate] = useState('');
-  const targetDate = new Date().toISOString();
+  const[targetDate,setTargetDate] = useState(new Date().toISOString());
+
 
 	return (
 		<IonApp>
 			<IonHeader>
-				<IonToolbar>
-					<IonTitle>My App</IonTitle>
+				<IonToolbar color="warning">
+					<IonTitle className="ion-text-center" >Biorhythm Calculator</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 			<IonContent className="ion-padding">
+      {birthDate && targetDate &&
+          <BiorhythmCard birthDate={birthDate} targetDate={targetDate} />}
 				<IonItem>
-					<IonLabel position="stacked">Date of Birth:</IonLabel>
+					<IonLabel position="fixed">Date of Birth:</IonLabel>
 					{/* formating date appereance */}
 					<IonDatetime
 						displayFormat="D MMM YYYY"
 						value={birthDate}
-						onIonChange={(e) => setBirthDate(e.target.value)}
+						onIonChange={(e) => setBirthDate(e.detail.value)}
 					/>
 				</IonItem>
-        <BiorhythmCard targetDate={targetDate}/>
+        <IonItem>
+					<IonLabel position="fixed">Taget Date:</IonLabel>
+					{/* formating date appereance */}
+					<IonDatetime
+						displayFormat="D MMM YYYY"
+						value={targetDate}
+						onIonChange={(e) => setTargetDate(e.detail.value)}
+					/>
+				</IonItem>
 			</IonContent>
 		</IonApp>
 	);
