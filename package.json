@@ -12,7 +12,9 @@
     "dayjs": "^1.8.35",
     "ionicons": "^5.0.1",
     "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "react-dom": "^16.13.0",
+    "rechart": "0.0.1",
+    "recharts": "^1.8.5"
   },
   "devDependencies": {
     "react-scripts": "3.4.1"
